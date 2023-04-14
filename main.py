@@ -3,6 +3,8 @@ from pynput.keyboard import Key, Controller, Listener
 from threading import Thread
 import time
 import json
+from os import listdir
+import random
 
 def cal_key(tone_i, ctrl_shift, tone_o):
     if tone_i == 'q':
@@ -156,9 +158,6 @@ def cal_delay_s(bpm, meter):
         return 0
 
 def playing():
-    global stop_flag, playing_flag
-
-    playing_flag = True
     #############################################
     # really weird
     # if there is nothing here
@@ -168,7 +167,15 @@ def playing():
     # function like print or sleep can deal
     # this problem but pass can not
     #############################################
-    file_object = open("ms/qilixiang.ms", 'r')
+    global stop_flag, playing_flag
+    playing_flag = True
+
+    ms_list = []
+    for ms in listdir("ms/"):
+        if str(ms).endswith(".ms"):
+            ms_list.append(ms)
+
+    file_object = open("ms/" + ms_list[random.randint(0, len(ms_list) - 1)], 'r')
     try:
         text = file_object.read()
     finally:
@@ -197,6 +204,8 @@ def playing():
 
     for j in range(len(ctrl_shift)):
         if stop_flag:
+            with kb.pressed('f'):
+                pass
             print("[INFO] Stop")
             break
         else:
