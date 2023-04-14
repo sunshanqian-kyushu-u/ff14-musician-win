@@ -167,7 +167,7 @@ def playing():
     # function like print or sleep can deal
     # this problem but pass can not
     #############################################
-    file_object = open("lemon.ms", 'r')
+    file_object = open("ms/qilixiang.ms", 'r')
     try:
         text = file_object.read()
     finally:
