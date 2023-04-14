@@ -4,123 +4,124 @@ from threading import Thread
 import time
 import json
 
-def press_key(tone, delay_s):
-    if tone == 'q':
-        with kb.pressed(Key.ctrl, 'q'):
-            time.sleep(delay_s)
-    elif tone == 'w':
-        with kb.pressed(Key.ctrl, 'w'):
-            time.sleep(delay_s)
-    elif tone == 'e':
-        with kb.pressed(Key.ctrl, 'e'):
-            time.sleep(delay_s)
-    elif tone == 'r':
-        with kb.pressed(Key.ctrl, 'r'):
-            time.sleep(delay_s)
-    elif tone == 't':
-        with kb.pressed(Key.ctrl, 't'):
-            time.sleep(delay_s)
-    elif tone == 'y':
-        with kb.pressed(Key.ctrl, 'y'):
-            time.sleep(delay_s)
-    elif tone == 'u':
-        with kb.pressed(Key.ctrl, 'u'):
-            time.sleep(delay_s)
-    elif tone == '1':
-        with kb.pressed(Key.ctrl, '2'):
-            time.sleep(delay_s)
-    elif tone == '2':
-        with kb.pressed(Key.ctrl, '3'):
-            time.sleep(delay_s)
-    elif tone == '3':
-        with kb.pressed(Key.ctrl, '5'):
-            time.sleep(delay_s)
-    elif tone == '4':
-        with kb.pressed(Key.ctrl, '6'):
-            time.sleep(delay_s)
-    elif tone == '5':
-        with kb.pressed(Key.ctrl, '7'):
-            time.sleep(delay_s)
+def cal_key(tone_i, ctrl_shift, tone_o):
+    if tone_i == 'q':
+        ctrl_shift.append(0)
+        tone_o.append('q')
+    elif tone_i == 'w':
+        ctrl_shift.append(0)
+        tone_o.append('w')
+    elif tone_i == 'e':
+        ctrl_shift.append(0)
+        tone_o.append('e')
+    elif tone_i == 'r':
+        ctrl_shift.append(0)
+        tone_o.append('r')
+    elif tone_i == 't':
+        ctrl_shift.append(0)
+        tone_o.append('t')
+    elif tone_i == 'y':
+        ctrl_shift.append(0)
+        tone_o.append('y')
+    elif tone_i == 'u':
+        ctrl_shift.append(0)
+        tone_o.append('u')
+    elif tone_i == '1':
+        ctrl_shift.append(0)
+        tone_o.append('2')
+    elif tone_i == '2':
+        ctrl_shift.append(0)
+        tone_o.append('3')
+    elif tone_i == '3':
+        ctrl_shift.append(0)
+        tone_o.append('5')
+    elif tone_i == '4':
+        ctrl_shift.append(0)
+        tone_o.append('6')
+    elif tone_i == '5':
+        ctrl_shift.append(0)
+        tone_o.append('7')
 
-    elif tone == 'a':
-        with kb.pressed('q'):
-            time.sleep(delay_s)
-    elif tone == 's':
-        with kb.pressed('w'):
-            time.sleep(delay_s)
-    elif tone == 'd':
-        with kb.pressed('e'):
-            time.sleep(delay_s)
-    elif tone == 'f':
-        with kb.pressed('r'):
-            time.sleep(delay_s)
-    elif tone == 'g':
-        with kb.pressed('t'):
-            time.sleep(delay_s)
-    elif tone == 'h':
-        with kb.pressed('y'):
-            time.sleep(delay_s)
-    elif tone == 'j':
-        with kb.pressed('u'):
-            time.sleep(delay_s)
-    elif tone == '6':
-        with kb.pressed('2'):
-            time.sleep(delay_s)
-    elif tone == '7':
-        with kb.pressed('3'):
-            time.sleep(delay_s)
-    elif tone == '8':
-        with kb.pressed('5'):
-            time.sleep(delay_s)
-    elif tone == '9':
-        with kb.pressed('6'):
-            time.sleep(delay_s)
-    elif tone == '0':
-        with kb.pressed('7'):
-            time.sleep(delay_s)
+    elif tone_i == 'a':
+        ctrl_shift.append(1)
+        tone_o.append('q')
+    elif tone_i == 's':
+        ctrl_shift.append(1)
+        tone_o.append('w')
+    elif tone_i == 'd':
+        ctrl_shift.append(1)
+        tone_o.append('e')
+    elif tone_i == 'f':
+        ctrl_shift.append(1)
+        tone_o.append('r')
+    elif tone_i == 'g':
+        ctrl_shift.append(1)
+        tone_o.append('t')
+    elif tone_i == 'h':
+        ctrl_shift.append(1)
+        tone_o.append('y')
+    elif tone_i == 'j':
+        ctrl_shift.append(1)
+        tone_o.append('u')
+    elif tone_i == '6':
+        ctrl_shift.append(1)
+        tone_o.append('2')
+    elif tone_i == '7':
+        ctrl_shift.append(1)
+        tone_o.append('3')
+    elif tone_i == '8':
+        ctrl_shift.append(1)
+        tone_o.append('5')
+    elif tone_i == '9':
+        ctrl_shift.append(1)
+        tone_o.append('6')
+    elif tone_i == '0':
+        ctrl_shift.append(1)
+        tone_o.append('7')
 
-    elif tone == 'z':
-        with kb.pressed(Key.shift, 'q'):
-            time.sleep(delay_s)
-    elif tone == 'x':
-        with kb.pressed(Key.shift, 'w'):
-            time.sleep(delay_s)
-    elif tone == 'c':
-        with kb.pressed(Key.shift, 'e'):
-            time.sleep(delay_s)
-    elif tone == 'v':
-        with kb.pressed(Key.shift, 'r'):
-            time.sleep(delay_s)
-    elif tone == 'b':
-        with kb.pressed(Key.shift, 't'):
-            time.sleep(delay_s)
-    elif tone == 'n':
-        with kb.pressed(Key.shift, 'y'):
-            time.sleep(delay_s)
-    elif tone == 'm':
-        with kb.pressed(Key.shift, 'u'):
-            time.sleep(delay_s)
-    elif tone == 'i':
-        with kb.pressed(Key.shift, '2'):
-            time.sleep(delay_s)
-    elif tone == 'o':
-        with kb.pressed(Key.shift, '3'):
-            time.sleep(delay_s)
-    elif tone == 'p':
-        with kb.pressed(Key.shift, '5'):
-            time.sleep(delay_s)
-    elif tone == 'k':
-        with kb.pressed(Key.shift, '6'):
-            time.sleep(delay_s)
-    elif tone == 'l':
-        with kb.pressed(Key.shift, '7'):
-            time.sleep(delay_s)
+    elif tone_i == 'z':
+        ctrl_shift.append(2)
+        tone_o.append('q')
+    elif tone_i == 'x':
+        ctrl_shift.append(2)
+        tone_o.append('w')
+    elif tone_i == 'c':
+        ctrl_shift.append(2)
+        tone_o.append('e')
+    elif tone_i == 'v':
+        ctrl_shift.append(2)
+        tone_o.append('r')
+    elif tone_i == 'b':
+        ctrl_shift.append(2)
+        tone_o.append('t')
+    elif tone_i == 'n':
+        ctrl_shift.append(2)
+        tone_o.append('y')
+    elif tone_i == 'm':
+        ctrl_shift.append(2)
+        tone_o.append('u')
+    elif tone_i == 'i':
+        ctrl_shift.append(2)
+        tone_o.append('2')
+    elif tone_i == 'o':
+        ctrl_shift.append(2)
+        tone_o.append('3')
+    elif tone_i == 'p':
+        ctrl_shift.append(2)
+        tone_o.append('5')
+    elif tone_i == 'k':
+        ctrl_shift.append(2)
+        tone_o.append('6')
+    elif tone_i == 'l':
+        ctrl_shift.append(2)
+        tone_o.append('7')
 
-    elif tone == '-':
-        with kb.pressed(Key.shift, 'i'):
-            time.sleep(delay_s)
-    elif tone == '=':
-        time.sleep(delay_s)
+    elif tone_i == '-':
+        ctrl_shift.append(2)
+        tone_o.append('i')
+    elif tone_i == '=':
+        ctrl_shift.append(-1)
+        tone_o.append('o')
 
 def cal_delay_s(bpm, meter):
     if meter == '1':
@@ -173,69 +174,52 @@ def playing():
     finally:
         file_object.close()
     plain_text = text.replace(" ", "").replace("\t", "").replace("\n", "")
-    # print(plain_text)
 
     json_obj = json.loads(plain_text)
-    # print(json_obj["title"])
-    # print(json_obj["title"][0])
-    # print(len(json_obj["tie"]))
 
     delay_s = []
+    ctrl_shift = []
     tone = []
     i = 0
     while True:
         if i < len(json_obj["tie"]) and json_obj["tie"][i] == '0':
             delay_s.append(cal_delay_s(json_obj["bpm"], json_obj["meter"][i]))
-            tone.append(json_obj["tone"][i])
+            cal_key(json_obj["tone"][i], ctrl_shift, tone)
             i += 1
         elif i < len(json_obj["tie"]) and json_obj["tie"][i] == '1':
             delay_s.append(cal_delay_s(json_obj["bpm"], json_obj["meter"][i]) + cal_delay_s(json_obj["bpm"], json_obj["meter"][i + 1]))
-            tone.append(json_obj["tone"][i])
+            cal_key(json_obj["tone"][i], ctrl_shift, tone)
             i += 2
         else:
             break
 
-    # print(delay_s)
-    # print(tone)
-    # print(len(delay_s))
-    # print(len(tone))
-
     print("[INFO] Playing...")
 
-    for j in range(len(tone)):
+    for j in range(len(ctrl_shift)):
         if stop_flag:
             print("[INFO] Stop")
             break
         else:
-            # print("playing...")
-            # time.sleep(3)
-
-            # with press_key(tone[j]):
-            #     time.sleep(delay_s[j])
-            press_key(tone[j], delay_s[j])
+            if ctrl_shift[j] == 0:
+                with kb.pressed(Key.ctrl, tone[j]):
+                    time.sleep(delay_s[j])
+            elif ctrl_shift[j] == 1:
+                with kb.pressed(tone[j]):
+                    time.sleep(delay_s[j])
+            elif ctrl_shift[j] == 2:
+                with kb.pressed(Key.shift, tone[j]):
+                    time.sleep(delay_s[j])
+            else:
+                time.sleep(delay_s[j])
 
     if stop_flag == False:
         print("[INFO] Play end")
     playing_flag = False
 
-# this is the example
-# def on_press(key):
-#     try:
-#         print('alphanumeric key {0} pressed'.format(
-#             key.char))
-#     except AttributeError:
-#         print('special key {0} pressed'.format(
-#             key))
-# def on_release(key):
-#     print('{0} released'.format(
-#         key))
-#     if key == Key.esc:
-#         # Stop listener
-#         return False
-
 def on_release(key):
     global stop_flag, playing_flag
     if key == Key.esc:                                          # stop listener
+        stop_flag = True
         print("[INFO] Exit")
         return False
     elif key == Key.f8 and playing_flag == False:               # start playing thread
@@ -258,12 +242,6 @@ if __name__ == '__main__':
 
     # with kb.pressed(Key.shift, 's'):                          # can't work without with
     #     pass
-
-    # for i in range(5, 0, -1):
-    #     print("[INFO] Count down: " + str(i))
-    #     time.sleep(1)
-
-    # print("[INFO] Playing...")
 
     with Listener(on_release=on_release) as listener:
         listener.join()
