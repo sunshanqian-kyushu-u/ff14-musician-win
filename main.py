@@ -204,8 +204,6 @@ def playing():
 
     for j in range(len(ctrl_shift)):
         if stop_flag:
-            with kb.pressed('f'):
-                pass
             print("[INFO] Stop")
             break
         else:
@@ -227,14 +225,14 @@ def playing():
 
 def on_release(key):
     global stop_flag, playing_flag
-    if key == Key.esc:                                          # stop listener
+    if key == Key.f9:                                          # stop listener
         stop_flag = True
         print("[INFO] Exit")
         return False
     elif key == Key.f8 and playing_flag == False:               # start playing thread
         Thread(target=playing).start()
         stop_flag = False
-    elif key == Key.f8 and playing_flag == True:                # stop playing thread
+    elif key == Key.esc or key == Key.f8 and playing_flag == True:                # stop playing thread
         stop_flag = True
     else:
         pass
