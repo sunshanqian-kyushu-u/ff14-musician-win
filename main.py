@@ -170,12 +170,15 @@ def playing():
     global stop_flag, playing_flag
     playing_flag = True
 
+    # file_object = open("test.ms", 'r')
+    # file_object = open("ms/dongfengpo.ms", 'r')
+
     ms_list = []
     for ms in listdir("ms/"):
         if str(ms).endswith(".ms"):
             ms_list.append(ms)
-
     file_object = open("ms/" + ms_list[random.randint(0, len(ms_list) - 1)], 'r')
+
     try:
         text = file_object.read()
     finally:
