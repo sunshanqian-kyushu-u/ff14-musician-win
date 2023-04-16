@@ -170,8 +170,8 @@ def playing():
     global stop_flag, playing_flag
     playing_flag = True
 
-    # file_object = open("test.ms", 'r')
-    # file_object = open("ms/dongfengpo.ms", 'r')
+    # file_object = open("testms/temp.ms", 'r')
+    # file_object = open("ms/dongzhihua.ms", 'r')
 
     ms_list = []
     for ms in listdir("ms/"):
